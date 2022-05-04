@@ -1,0 +1,277 @@
+@charset "utf-8";
+*{box-sizing: border-box;}
+html, body{margin: 0; padding: 0;}
+h1, h2, h3, h4, h5, h6, p{margin: 0;}
+ul, ol{margin: 0; padding: 0; list-style: none;}
+a{text-decoration: none;}
+/* @media (max-width:1199px)
+@media (max-width:991px)
+@media (max-width:767px) */
+
+/* 메뉴파트 */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background-color: #6ab3b2;
+}
+header .wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+header .wrap .logo{
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+header .wrap .logo img{
+    display: block;
+    position: absolute;
+    height: 60px;
+}
+
+header .wrap .menu{
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .wrap .menu ul{
+    width: 100%;
+}
+header .wrap .menu ul li{
+    cursor: pointer;
+    line-height: 60px;
+    border-top: 1px solid #fff;
+    transition: background-color 1s;
+} 
+header .wrap .menu ul li:last-child{
+    border-bottom: 1px solid #fff;
+}
+header .wrap .menu ul li a{
+    display: block;
+    color: #fff;
+
+}
+header .wrap .menu ul li:hover{
+    background-color: #fff;
+    color: #6ab3b2;
+}
+header .wrap .menu ul li a:hover{
+   
+    color: #6ab3b2;
+}
+header .wrap .sns{
+    position: absolute;
+    left: 50%;
+    bottom: 20px; 
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+header .wrap .sns ul{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+header .wrap .sns p{
+   
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+header .wrap .sns ul li{
+    cursor: pointer;
+    width: 26px; height: 26px;
+    margin: 0 5px;
+}
+
+/* 본문(?)파트 */
+/* 엘리먼트<article>은 기본auto 사이즈이기에 강제로 h값을 부여해야 보인다*/
+section{
+    margin-left: 280px; 
+    /* 헤더 280px 사이즈 간격 */
+    width: calc(100% - 280px);
+    height: 1100px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    /* border: 1px solid #fff; */
+}
+
+section article{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: orange;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid rgb(174, 3, 3); */
+    transition: background-color 0.8s ;
+    cursor: pointer;
+}
+section article > img{
+    /* position: absolute; */
+    background-position: 50% 50%;
+    background-size: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+section article:nth-child(1){
+    grid-column:1/3;
+    grid-row:1/3;
+    height: 440px;
+    /* 이미지에 px사이즈를 부여해서 빈 부분을 해결하였다.. */
+}
+section article:nth-child(2){
+    grid-column:3/4;
+    grid-row:1/2;
+}
+section article:nth-child(3){
+    grid-column:4/5;
+    grid-row:1/2;
+}
+section article:nth-child(4){
+    grid-column:3/4;
+    grid-row:2/3;
+}
+section article:nth-child(5){
+    grid-column:4/5;
+    grid-row:2/3;
+}
+section article:nth-child(6){
+    grid-column:1/2;
+   grid-row:3/4;
+}
+section article:nth-child(7){
+    grid-column:2/4;
+    grid-row:3/4;
+}
+section article:nth-child(8){
+    grid-column:4/5;
+    grid-row:3/4;
+}
+section article:nth-child(9){
+    grid-column:1/2;
+   grid-row:4/5;
+}
+section article:nth-child(10){
+    grid-column:2/3;
+    grid-row:4/5;
+}
+section article:nth-child(11){
+    grid-column:3/5;
+    grid-row:4/5;
+}
+section article:nth-child(12){
+    grid-column:1/3;
+    grid-row:5/6;
+}
+section article:nth-child(13){
+    grid-column :3/4;
+    grid-row: 5/6;
+}
+section article:nth-child(14){
+    grid-column:4/5;
+    grid-row:5/6;
+}
+
+/* 호버시.. */
+/* 
+
+<article>
+position: relative;
+overflow: hidden; => 부모인 아티클 영역에 
+벗어나면, 모두 감춘다. 
+
+*/
+
+section article .bg{
+    position: absolute;
+    width: 100%; height: 100%;
+    text-align: center;
+    background-color: rgba(250, 128, 114, 0.534);
+    color: #fff;
+    opacity: 0; transition: background-color 1s;
+}
+section article .bg .txt{
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+section article .bg .txt h3{
+    font-size: 30px;
+    line-height: 50px;
+}
+section article .bg .txt h6{
+    font-size: 18px;
+    line-height: 35px;
+}
+section article .bg .txt h6:after{
+    background-color: #fff;
+    width: 100px;
+    height: 3px;
+    content: ""; 
+    display: block;
+    text-align: center;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+}
+section article .bg .txt p{
+    font-size: 14px;
+    line-height: 35px;
+}
+section article:hover .bg{
+    opacity: 1;
+    transition: 1s;
+}
+section article .icon{
+    position: absolute; 
+    display: block; 
+    width: 40px; height: 40px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    bottom: -40px;
+    /* 사진 바로 밑에서 */
+    opacity: 1; transition: bottom 1s;
+}
+section article .icon .icon_bg{
+    background-color: #fff;
+    width: 40px; height: 40px;
+    border-radius: 100px;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: 0;
+}
+section article .icon .icon_bg .img{
+    display: block;
+}
+section article:nth-child(1):hover .icon{
+    opacity: 1;
+    bottom: 120px;
+    /* 120px까지 올라와라 */
+}
+section article:hover .icon{
+    opacity: 1;
+    bottom: 15px;
+}
+
